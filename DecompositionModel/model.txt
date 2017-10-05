@@ -1,0 +1,42 @@
+Comments:
+The domain entities does not have ids
+Transformation is currently included in the domain model
+
+Model:
+concave
+convex
+ - density
+ - size = sum(lines.length)
+ - mass = density * size
+ - lines
+ - (vertices)
+edge
+bullet : convex
+ - speed
+ - issymetrical: true
+ - intersectsWithConvex()
+ >bullet - intersects with - convex : bulletConvexIntersection
+ - start
+ - end
+hole
+ - depth
+
+High:
+If the direction of a bullet intersects with a convex a hole should be created.
+If the bullet ray intersects with multiple convexes a hole should be made in the convex that is closest,
+    if the hole goes all the way through a hole should be created on the next closest convex aswel and so forth...
+    
+Depth of the hole should be calculated so that:
+calculateDepth(bulletDensity: 1, bulletSpeed: 1, convexDensity: 1) -> 0.
+calculateDepth(bulletDensity: 0.5, bulletSpeed: 1, convexDensity: 1) -> 0.
+calculateDepth(bulletDensity: 1, bulletSpeed: 1, convexDensity: 0) -> infinity
+calculateDepth(bulletDensity: 1, bulletSpeed: 1, convexDensity: 0.5) -> 0.5
+for example: bulletDensity * bulletSpeed - convexDensity
+
+Med:
+This should split the convex into two convexes along the bullet direction.
+The mass of the bullet should be removed from the convex.
+
+Low:
+All lines intersecting with the bullet template should be removed and instead 
+

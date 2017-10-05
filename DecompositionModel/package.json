@@ -1,0 +1,20 @@
+{
+  "name": "decompositionmodel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "autotest": "./node_modules/.bin/supervisor -q -n exit -x ./runOnChange.sh  -- -b"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^3.5.0",
+    "sinon": "^4.0.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.10.0",
+    "supervisor": "~0.5.2"
+  }
+}
