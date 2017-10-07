@@ -19,28 +19,49 @@ Convex = function (createOptions = {}) {
         let wentThrough = false;
         let leftConvex = Convex();
         let rightConvex = Convex();
-
+        console.log(intersectionResult);
         let leftSeries = numberSeries.circularExclusive(
             intersectionResult.enter.index,
             intersectionResult.exit.index,
-            lines.length);
+            lines.length).map(i => lines[i]);
 
         let rightSeries = numberSeries.circularExclusive(
             intersectionResult.exit.index,
             intersectionResult.enter.index,
-            lines.length);
+            lines.length).map(i => lines[i]);
 
-        leftConvex.lines = leftSeries.map(i => lines[i]);
-        rightConvex.lines = rightSeries.map(i => lines[i]);
+        let leftStartEdge = {
+            start: {
+                x: intersectionResult.enter.intersectPosition.x,
+                y: intersectionResult.enter.intersectPosition.y
+            },
+            end: leftSeries[0].start
+        };
+
+        let rightStartEdge = {
+            start: {
+                x: intersectionResult.exit.intersectPosition.x,
+                y: intersectionResult.exit.intersectPosition.y
+            },
+            end: rightSeries[0].start
+        };
+
+        leftConvex.lines = [
+            leftStartEdge,
+            ...leftSeries
+        ];
+        rightConvex.lines = [
+            rightStartEdge,
+            ...rightSeries
+        ];
 
         // handle bullet template
         // remove mass
 
         return {
             wentThrough,
-            newConvexes: [
-                leftConvex, rightConvex
-            ]
+            leftConvex,
+            rightConvex
         };
     }
 };

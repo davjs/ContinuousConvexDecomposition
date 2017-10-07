@@ -5,15 +5,16 @@ let Convex = require('../../src/domain/convex.js');
 
 suite('convex', function () {
     suite('makeHole', function () {
-        test('splits the convex into two', function () {
-            let convex = Convex();
-            let { wentThrough, newConvexes } = convex.makeHole({},
-                {
-                    enter: {index: 0},
-                    exit: {index: 1}
-                });
-
-            assert.equal(newConvexes.length, 2);
+        test('//returns correct object?', function () {
+            // let convex = Convex();
+            // let { wentThrough, newConvexes } = convex.makeHole({},
+            //     {
+            //         enter: {
+            //             intersectPosition: {},
+            //             index: 0
+            //         },
+            //         exit: { index: 1 }
+            //     });
         });
         test('all edges appearant in the original convex ' +
             'that did not intersect with the bullet ' +
@@ -31,20 +32,18 @@ suite('convex', function () {
                     line0, line1, line2
                 ]
             });
-            let { wentThrough, newConvexes } = convex.makeHole({}, {
-                enter: { index: 0 },
-                exit: { index: 2 }
-            });
+            let { leftConvex, rightConvex } = convex.makeHole(
+                {},
+                createIntersectionResult(0, 2)
+            );
 
-            assert(newConvexes[0].lines.includes(line1) ||
-                newConvexes[1].lines.includes(line1));
+            assert(leftConvex.lines.includes(line1) ||
+                rightConvex.lines.includes(line1));
 
-            assert(!newConvexes[0].lines.includes(line0));
-            assert(!newConvexes[0].lines.includes(line0));
-            assert(!newConvexes[1].lines.includes(line2));
-            assert(!newConvexes[1].lines.includes(line2));
-
-            assert.equal(newConvexes.length, 2);
+            assert(!leftConvex.lines.includes(line0));
+            assert(!leftConvex.lines.includes(line0));
+            assert(!rightConvex.lines.includes(line2));
+            assert(!rightConvex.lines.includes(line2));
         });
 
         test('one of the convexes should contain' +
@@ -60,14 +59,15 @@ suite('convex', function () {
                     leftEdge, topEdge, rightEdge, bottomEdge
                 ]
             });
-            let { _, newConvexes } = box.makeHole({}, {
-                enter: { index: 3 },
+            let { leftConvex, rightConvex } = box.makeHole({}, {
+                enter: {
+                    intersectPosition: {},
+                    index: 3
+                },
                 exit: { index: 1 }
             });
 
-            assert(newConvexes[0].lines.includes(leftEdge));
-
-            assert.equal(newConvexes.length, 2);
+            assert(leftConvex.lines.includes(leftEdge));
         });
 
         test('one of the convexes should contain' +
@@ -83,14 +83,120 @@ suite('convex', function () {
                     leftEdge, topEdge, rightEdge, bottomEdge
                 ]
             });
-            let { _, newConvexes } = box.makeHole({}, {
-                enter: { index: 3 },
+            let { leftConvex, rightConvex } = box.makeHole({}, {
+                enter: {
+                    intersectPosition: {},
+                    index: 3
+                },
                 exit: { index: 1 }
             });
 
-            assert(newConvexes[1].lines.includes(rightEdge));
-
-            assert.equal(newConvexes.length, 2);
+            assert(rightConvex.lines.includes(rightEdge));
         });
+
+        test('the left convex should start ' +
+            'with an edge that starts at the intersection enter', function () {
+
+            let leftEdge = {
+                start: { x: 0, y: 0 },
+                end: { x: 0, y: 0 }
+            };
+            let topEdge = {};
+            let rightEdge = {};
+            let bottomEdge = {};
+
+            let box = Convex({
+                lines: [
+                    bottomEdge, leftEdge, topEdge, rightEdge
+                ]
+            });
+            let { leftConvex, rightConvex } = box.makeHole({}, {
+                enter: {
+                    intersectPosition: { x: 0, y: 1 },
+                    index: 0
+                },
+                exit: { index: 2 }
+            });
+            console.log(leftConvex.lines[0]);
+            assert.equal(leftConvex.lines[0].start.x, 0);
+            assert.equal(leftConvex.lines[0].start.y, 1);
+            assert.equal(leftConvex.lines[0].end, leftEdge.start);
+        });
+
+        test('the right convex should start ' +
+            'with an edge that starts at the intersection exit', function () {
+
+            let leftEdge = {
+                start: { x: 0, y: 0 },
+                end: { x: 0, y: 0 }
+            };
+            let topEdge = {};
+            let rightEdge = {};
+            let bottomEdge = {};
+
+            let box = Convex({
+                lines: [
+                    bottomEdge, leftEdge, topEdge, rightEdge
+                ]
+            });
+            let { leftConvex, rightConvex } = box.makeHole({}, {
+                enter: {
+                    intersectPosition: {},
+                    index: 0
+                },
+                exit: {
+                    intersectPosition: { x: 0, y: 1 },
+                    index: 2
+                }
+            });
+            console.log(rightConvex.lines[0]);
+            assert.equal(rightConvex.lines[0].start.x, 0);
+            assert.equal(rightConvex.lines[0].start.y, 1);
+            assert.equal(rightConvex.lines[0].end, rightEdge.start);
+        });
+        test('the next last edge in the left convex ' +
+            'should end at the intersection exit', function () {
+
+            let leftEdge = {
+                start: { x: 0, y: 0 },
+                end: { x: 0, y: 0 }
+            };
+            let topEdge = {};
+            let rightEdge = {};
+            let bottomEdge = {};
+
+            let box = Convex({
+                lines: [
+                    bottomEdge, leftEdge, topEdge, rightEdge
+                ]
+            });
+            let { leftConvex, rightConvex } = box.makeHole({}, {
+                enter: {
+                    intersectPosition: { x: 0, y: 1 },
+                    index: 0
+                },
+                exit: { index: 2 }
+            });
+            console.log(leftConvex.lines[0]);
+            assert.equal(leftConvex.lines[0].start.x, 0);
+            assert.equal(leftConvex.lines[0].start.y, 1);
+            assert.equal(leftConvex.lines[0].end, leftEdge.start);
+        });
+
+        // Take care of triangle!!
+
     });
 });
+
+function createIntersectionResult(enterIndex, exitIndex) {
+    return {
+        enter: {
+            intersectPosition: {},
+            index: enterIndex
+        },
+        exit: {
+            index: exitIndex,
+            intersectPosition: {},
+        }
+    };
+}
