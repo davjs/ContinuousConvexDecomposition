@@ -14,41 +14,58 @@ Convex = function (createOptions = {}) {
         makeHole
     };
 
+    function GetEdgesToLeftOfIntersection(enterIndex, exitIndex){
+        return numberSeries
+        .circularExclusive(
+            enterIndex,
+            exitIndex,
+            lines.length)
+            .map(i => lines[i]);
+    };
+    function GetEdgesToRightOfIntersection(enterIndex, exitIndex){
+        return numberSeries
+        .circularExclusive(
+            exitIndex,
+            enterIndex,
+            lines.length)
+            .map(i => lines[i]);
+    };
     function makeHole(bullet, intersectionResult) {
         //TODO: calculate depth
         let wentThrough = false;
         let leftConvex = Convex();
         let rightConvex = Convex();
-        console.log(intersectionResult);
-        let leftSeries = numberSeries.circularExclusive(
-            intersectionResult.enter.index,
-            intersectionResult.exit.index,
-            lines.length).map(i => lines[i]);
-
-        let rightSeries = numberSeries.circularExclusive(
-            intersectionResult.exit.index,
-            intersectionResult.enter.index,
-            lines.length).map(i => lines[i]);
+        let leftSeries = GetEdgesToLeftOfIntersection(intersectionResult.enter.index, intersectionResult.exit.index);
+        let rightSeries = GetEdgesToRightOfIntersection(intersectionResult.enter.index, intersectionResult.exit.index);
 
         let leftStartEdge = {
             start: {
                 x: intersectionResult.enter.intersectPosition.x,
                 y: intersectionResult.enter.intersectPosition.y
             },
-            end: leftSeries[0].start
+            end: lines[intersectionResult.enter.index].end
         };
 
+        let leftEndEdge = {
+            start: lines[intersectionResult.exit.index].start,
+            end: {
+                x: intersectionResult.exit.intersectPosition.x,
+                y: intersectionResult.exit.intersectPosition.y
+            },
+        };
+        
         let rightStartEdge = {
             start: {
                 x: intersectionResult.exit.intersectPosition.x,
                 y: intersectionResult.exit.intersectPosition.y
             },
-            end: rightSeries[0].start
+            end: lines[intersectionResult.exit.index].end
         };
 
         leftConvex.lines = [
             leftStartEdge,
-            ...leftSeries
+            ...leftSeries,
+            leftEndEdge
         ];
         rightConvex.lines = [
             rightStartEdge,

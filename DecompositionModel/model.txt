@@ -34,9 +34,16 @@ calculateDepth(bulletDensity: 1, bulletSpeed: 1, convexDensity: 0.5) -> 0.5
 for example: bulletDensity * bulletSpeed - convexDensity
 
 Med:
-This should split the convex into two convexes along the bullet direction.
+This should split the convex into a left and right part.
+The left part should contain every edge to the left of the intersection position, excluding the edges intersecting with the bullet.
+The right part should contain every edge to the right of the intersection position, excluding the edges intersecting with the bullet.
+If the bullet goes through, each part should contain an edge representing how the bullet has passed through the original convex.
+    The width of the bullet hole should be equal to maximum width of the bullet convex.
+If the bullet does not go through, a hole should be made representing subtracting the bullet convex from the original convex.
+    This means each part should add edges representing the left and right parts of the bullet.
+
+
 The mass of the bullet should be removed from the convex.
 
 Low:
-All lines intersecting with the bullet template should be removed and instead 
-
+All lines intersecting with the bullet template should be removed and  
