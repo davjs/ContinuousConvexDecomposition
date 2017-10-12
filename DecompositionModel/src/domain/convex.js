@@ -62,14 +62,35 @@ Convex = function (createOptions = {}) {
             end: lines[intersectionResult.exit.index].end
         };
 
+        let rightEndEdge = {
+            start: lines[intersectionResult.enter.index].start,
+            end: {
+                x: intersectionResult.enter.intersectPosition.x,
+                y: intersectionResult.enter.intersectPosition.y
+            },
+        };
+
+        let leftSplitEdge = {
+            start: intersectionResult.exit.intersectPosition,
+            end: intersectionResult.enter.intersectPosition,
+        };
+
+        let rightSplitEdge = {
+            start: intersectionResult.enter.intersectPosition,
+            end: intersectionResult.exit.intersectPosition,
+        };
+
         leftConvex.lines = [
             leftStartEdge,
             ...leftSeries,
-            leftEndEdge
+            leftEndEdge,
+            leftSplitEdge
         ];
         rightConvex.lines = [
             rightStartEdge,
-            ...rightSeries
+            ...rightSeries,
+            rightEndEdge,
+            rightSplitEdge
         ];
 
         // handle bullet template

@@ -175,13 +175,98 @@ suite('convex', function () {
                  }
             });
 
-            //assert.equal(leftConvex.lines[2].start, rightEdge.end);
+            assert.equal(leftConvex.lines[2].start, rightEdge.end);
             assert.equal(leftConvex.lines[2].end.x, 2);
             assert.equal(leftConvex.lines[2].end.y, 3);
         });
 
-        // Take care of triangle!!
+        test('the next last edge in the right convex ' +
+            'should end at the intersection enter', function () {
 
+            let bottomEdge = {
+                start: { x: 0, y: 0 },
+                end: { x: 0, y: 0 }};
+            let leftEdge = {
+            };
+            let rightEdge = {};
+
+            let box = Convex({
+                lines: [
+                    bottomEdge, leftEdge, rightEdge
+                ]
+            });
+            let { leftConvex, rightConvex } = box.makeHole({}, {
+                enter: {
+                    intersectPosition: { x: 0, y: 1 },
+                    index: 0
+                },
+                exit: {
+                    intersectPosition: {x: 2, y: 3},
+                    index: 2
+                }
+            });
+            assert.equal(rightConvex.lines[1].start, bottomEdge.start);
+            assert.equal(rightConvex.lines[1].end.x, 0);
+            assert.equal(rightConvex.lines[1].end.y, 1);
+        });
+        test('the last edge in the left convex ' +
+            'should go from intersection intersection exit to enter', function () {
+
+            let bottomEdge = {};
+            let leftEdge = {};
+            let rightEdge = {};
+
+            let box = Convex({
+                lines: [
+                    bottomEdge, leftEdge, rightEdge
+                ]
+            });
+
+            let enterPos = { x: 0, y: 1 };
+            let exitPos = {x: 2, y: 3};
+            let { leftConvex, rightConvex } = box.makeHole({}, {
+                enter: {
+                    intersectPosition: enterPos,
+                    index: 0
+                },
+                exit: {
+                    intersectPosition: exitPos,
+                    index: 2
+                }
+            });
+
+            assert.equal(leftConvex.lines[3].start, exitPos);
+            assert.equal(leftConvex.lines[3].end, enterPos);
+        });
+        test('the last edge in the right convex ' +
+            'should go from intersection intersection enter to exit', function () {
+
+            let bottomEdge = {};
+            let leftEdge = {};
+            let rightEdge = {};
+
+            let box = Convex({
+                lines: [
+                    bottomEdge, leftEdge, rightEdge
+                ]
+            });
+
+            let enterPos = { x: 0, y: 1 };
+            let exitPos = {x: 2, y: 3};
+            let { leftConvex, rightConvex } = box.makeHole({}, {
+                enter: {
+                    intersectPosition: enterPos,
+                    index: 0
+                },
+                exit: {
+                    intersectPosition: exitPos,
+                    index: 2
+                }
+            });
+
+            assert.equal(rightConvex.lines[2].start, enterPos);
+            assert.equal(rightConvex.lines[2].end, exitPos);
+        });
     });
 });
 
