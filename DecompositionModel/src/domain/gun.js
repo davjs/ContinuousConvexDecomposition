@@ -1,3 +1,5 @@
+let convexHelper = require('../convexHelper.js')
+
 module.exports = {
     shoot(bullet, convexes) {
 
@@ -22,8 +24,12 @@ module.exports = {
             );
             for (let i = 0; i < sorted.length; i++) {
                 let convex = sorted[i].convex;
-                let { wentThrough, newConvexes } = convex.makeHole(bullet, sorted[i].intersectionResult);
-                transformations.push({ convex, newConvexes });
+                let { wentThrough, leftConvex, rightConvex } = convex.makeHole(bullet, sorted[i].intersectionResult);
+                if(!convexHelper.isPolygonConvex(leftConvex.getVertices()))
+                    Error();
+                if(!convexHelper.isPolygonConvex(rightConvex.getVertices()))
+                    Error();
+                transformations.push({ convex, leftConvex, rightConvex });
                 if (!wentThrough)
                     break;
             }

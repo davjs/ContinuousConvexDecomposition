@@ -78,19 +78,26 @@ module.exports = {
             x: convex.x,
             y: convex.y
         };
-        let checks = convex.lines.map((lineSegment, index) => ({
-                ...this.getRayToLineSegmentIntersection(ray, {
+        let checks = convex.lines.map((lineSegment, index) => (
+            Object.assign(
+                this.getRayToLineSegmentIntersection(ray, {
                     start: this.vectorAdd(convexPos, lineSegment.start),
                     end: this.vectorAdd(convexPos, lineSegment.end)
                 }),
-                index
-            }
+                {
+                    index: index
+                })
         ));
         var collisions = checks.filter((check) => check.intersects);
         var nCollisions = collisions.length;
 
         if (nCollisions !== 2 && nCollisions !== 0) {
-            throw Error();
+            console.log('bullet', bullet);
+            console.log('convex', convex);
+            console.log('convexPonits', convex.getVertices());
+            console.log('collisions', collisions);
+            console.log('checks', checks);
+            throw Error(nCollisions);
         }
         if (nCollisions === 0) {
             return {

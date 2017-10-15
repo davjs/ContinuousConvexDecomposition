@@ -1,4 +1,5 @@
 let numberSeries = require('../numberSeries.js');
+
 Convex = function (createOptions = {}) {
 
     let lines = createOptions.lines || [];
@@ -11,10 +12,15 @@ Convex = function (createOptions = {}) {
         x,
         y,
         lines,
+        getVertices,
         makeHole
     };
 
-    function GetEdgesToLeftOfIntersection(enterIndex, exitIndex){
+    function getVertices(){
+        let vertices = this.lines.map(l => l.start);
+        return vertices;
+    };
+    function getEdgesToLeftOfIntersection(enterIndex, exitIndex){
         return numberSeries
         .circularExclusive(
             enterIndex,
@@ -22,7 +28,7 @@ Convex = function (createOptions = {}) {
             lines.length)
             .map(i => lines[i]);
     };
-    function GetEdgesToRightOfIntersection(enterIndex, exitIndex){
+    function getEdgesToRightOfIntersection(enterIndex, exitIndex){
         return numberSeries
         .circularExclusive(
             exitIndex,
@@ -33,10 +39,10 @@ Convex = function (createOptions = {}) {
     function makeHole(bullet, intersectionResult) {
         //TODO: calculate depth
         let wentThrough = false;
-        let leftConvex = Convex();
-        let rightConvex = Convex();
-        let leftSeries = GetEdgesToLeftOfIntersection(intersectionResult.enter.index, intersectionResult.exit.index);
-        let rightSeries = GetEdgesToRightOfIntersection(intersectionResult.enter.index, intersectionResult.exit.index);
+        let leftConvex = Convex({x: this.x,y: this.y});
+        let rightConvex = Convex({x: this.x,y: this.y});
+        let leftSeries = getEdgesToLeftOfIntersection(intersectionResult.enter.index, intersectionResult.exit.index);
+        let rightSeries = getEdgesToRightOfIntersection(intersectionResult.enter.index, intersectionResult.exit.index);
 
         let leftStartEdge = {
             start: {

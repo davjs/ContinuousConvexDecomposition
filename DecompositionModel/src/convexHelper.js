@@ -3,7 +3,8 @@ let Convex = require('./domain/convex.js');
 module.exports = {
     randomConvex,
     box,
-    isPolygonConvex
+    isPolygonConvex,
+    convexFromPoints
 };
 
 function convexFromPoints(points, x = 0, y = 0) {
@@ -31,19 +32,19 @@ function randomConvex() {
     return convexFromPoints(pointsConvexPolygon);
 }
 
-function box(x, y) {
+function box({ x, y, size = 1 } = {}) {
     return convexFromPoints([{
-        x: -1,
-        y: -1
+        x: -1 * size,
+        y: -1 * size
     }, {
-        x: 1,
-        y: -1
+        x: 1 * size,
+        y: -1 * size
     }, {
-        x: 1,
-        y: 1
+        x: 1 * size,
+        y: 1 * size
     }, {
-        x: -1,
-        y: 1
+        x: -1 * size,
+        y: 1 * size
     }], x, y);
 }
 
@@ -98,17 +99,17 @@ function isPolygonConvex(points) {
 
 // var pointsConvexPolygon = [{x:-1, y: -1}, {x:1, y: -1}, {x:1, y: 1}, {x:-1, y: 1},];
 var pointsConvexPolygon = [{
-    "x": 2117708.7303958,
-    "y": 6024264.0003844
+    "x": 21.7303958,
+    "y": 60.0003844
 }, {
-    "x": 2118950.8321053,
-    "y": 6026690.8760321
+    "x": 21.8321053,
+    "y": 60.8760321
 }, {
-    "x": 2121110.178154,
-    "y": 6024187.5633561
+    "x": 21.178154,
+    "y": 60.5633561
 }, {
-    "x": 2119361.6811323,
-    "y": 6023432.7477018
+    "x": 21.6811323,
+    "y": 60.7477018
 }]; //{"x":2117708.7303958,"y":6024264.0003844}
 var pointsConcavePolygon = [{
     "x": 2119934.9588443,

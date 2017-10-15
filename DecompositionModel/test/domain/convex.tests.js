@@ -16,6 +16,31 @@ suite('convex', function () {
             //         exit: { index: 1 }
             //     });
         });
+        test('getVertexes returns the vertices of a convex', function () {
+            let convex = Convex({
+                lines:
+                    [
+                        {
+                            start: { x: 1, y: 0 },
+                            end: { x: 0, y: 0 }
+                        },
+                        {
+                            start: { x: 2, y: 0 },
+                            end: { x: 0, y: 0 }
+                        },
+                        {
+                            start: { x: 3, y: 0 },
+                            end: { x: 0, y: 0 }
+                        },
+                    ]
+            });
+            assert.deepEqual(convex.getVertices(),
+                [
+                    { x: 1, y: 0 },
+                    { x: 2, y: 0 },
+                    { x: 3, y: 0 }
+                ]);
+        });
         test('all edges appearant in the original convex ' +
             'that did not intersect with the bullet ' +
             'should exist in either of the new convexes', function () {
@@ -50,16 +75,16 @@ suite('convex', function () {
             ' all edges to the left of the bullet ray', function () {
 
             let leftEdge = {};
-            let topEdge = {end: {}};
+            let topEdge = { end: {} };
             let rightEdge = {};
-            let bottomEdge = {end: {}};
+            let bottomEdge = { end: {} };
 
             let box = Convex({
                 lines: [
                     leftEdge, topEdge, rightEdge, bottomEdge
                 ]
             });
-            let { leftConvex, rightConvex } = box.makeHole({}, 
+            let { leftConvex, rightConvex } = box.makeHole({},
                 createIntersectionResult(3, 1)
             );
 
@@ -79,7 +104,7 @@ suite('convex', function () {
                     leftEdge, topEdge, rightEdge, bottomEdge
                 ]
             });
-            let { leftConvex, rightConvex } = box.makeHole({}, 
+            let { leftConvex, rightConvex } = box.makeHole({},
                 createIntersectionResult(3, 1)
             );
 
@@ -90,10 +115,9 @@ suite('convex', function () {
             'with an edge that starts at the intersection enter', function () {
 
             let bottomEdge = {
-                end: { x: 0, y: 0 }                
+                end: { x: 0, y: 0 }
             };
-            let leftEdge = {
-            };
+            let leftEdge = {};
             let topEdge = {};
             let rightEdge = {};
 
@@ -107,12 +131,12 @@ suite('convex', function () {
                     intersectPosition: { x: 0, y: 1 },
                     index: 0
                 },
-                exit: { 
+                exit: {
                     intersectPosition: {},
-                    index: 2 
+                    index: 2
                 }
             });
-            
+
             assert.equal(leftConvex.lines[0].start.x, 0);
             assert.equal(leftConvex.lines[0].start.y, 1);
             assert.deepEqual(leftConvex.lines[0].end, bottomEdge.end);
@@ -152,41 +176,10 @@ suite('convex', function () {
         test('the next last edge in the left convex ' +
             'should end at the intersection exit', function () {
 
-                let bottomEdge = {};
-                let leftEdge = {
+            let bottomEdge = {};
+            let leftEdge = {
                 start: { x: 0, y: 0 },
                 end: { x: 0, y: 0 }
-            };
-            let rightEdge = {};
-            
-            let box = Convex({
-                lines: [
-                    bottomEdge, leftEdge, rightEdge
-                ]
-            });
-            let { leftConvex, rightConvex } = box.makeHole({}, {
-                enter: {
-                    intersectPosition: { x: 0, y: 1 },
-                    index: 0
-                },
-                exit: { 
-                    intersectPosition: {x: 2, y: 3},
-                    index: 2
-                 }
-            });
-
-            assert.equal(leftConvex.lines[2].start, rightEdge.end);
-            assert.equal(leftConvex.lines[2].end.x, 2);
-            assert.equal(leftConvex.lines[2].end.y, 3);
-        });
-
-        test('the next last edge in the right convex ' +
-            'should end at the intersection enter', function () {
-
-            let bottomEdge = {
-                start: { x: 0, y: 0 },
-                end: { x: 0, y: 0 }};
-            let leftEdge = {
             };
             let rightEdge = {};
 
@@ -201,7 +194,38 @@ suite('convex', function () {
                     index: 0
                 },
                 exit: {
-                    intersectPosition: {x: 2, y: 3},
+                    intersectPosition: { x: 2, y: 3 },
+                    index: 2
+                }
+            });
+
+            assert.equal(leftConvex.lines[2].start, rightEdge.end);
+            assert.equal(leftConvex.lines[2].end.x, 2);
+            assert.equal(leftConvex.lines[2].end.y, 3);
+        });
+
+        test('the next last edge in the right convex ' +
+            'should end at the intersection enter', function () {
+
+            let bottomEdge = {
+                start: { x: 0, y: 0 },
+                end: { x: 0, y: 0 }
+            };
+            let leftEdge = {};
+            let rightEdge = {};
+
+            let box = Convex({
+                lines: [
+                    bottomEdge, leftEdge, rightEdge
+                ]
+            });
+            let { leftConvex, rightConvex } = box.makeHole({}, {
+                enter: {
+                    intersectPosition: { x: 0, y: 1 },
+                    index: 0
+                },
+                exit: {
+                    intersectPosition: { x: 2, y: 3 },
                     index: 2
                 }
             });
@@ -223,7 +247,7 @@ suite('convex', function () {
             });
 
             let enterPos = { x: 0, y: 1 };
-            let exitPos = {x: 2, y: 3};
+            let exitPos = { x: 2, y: 3 };
             let { leftConvex, rightConvex } = box.makeHole({}, {
                 enter: {
                     intersectPosition: enterPos,
@@ -252,7 +276,7 @@ suite('convex', function () {
             });
 
             let enterPos = { x: 0, y: 1 };
-            let exitPos = {x: 2, y: 3};
+            let exitPos = { x: 2, y: 3 };
             let { leftConvex, rightConvex } = box.makeHole({}, {
                 enter: {
                     intersectPosition: enterPos,
