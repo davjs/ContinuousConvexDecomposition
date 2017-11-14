@@ -7,6 +7,7 @@
         <canvas id="myCanvas"
                 :width="gameViewModel.width"
                 :height="gameViewModel.height"
+                v-render-game="gameViewModel"
                 ref="canvas">
         </canvas>
         <div>
@@ -45,11 +46,10 @@
         name: 'HelloWorld',
         data() {
             return {
-                runLog: [],
+                runLog: {},
                 isShooting: false,
                 isPaused: false,
                 engine: Engine.create(),
-                convexes: [],
                 firstUpdate: true,
                 running: true,
                 prevTimestamp: '',
@@ -57,6 +57,7 @@
                 shooterBody: {},
                 mainBody: {},
                 gameViewModel: {
+                    convexes: [],
                     width: width,
                     height: height,
                     polygon: {
@@ -87,16 +88,21 @@
                 ctx.clearRect(0, 0, gameViewModel.width, gameViewModel.height);
                 ctx.fillStyle = "black";
                 ctx.fillStyle = '#59C9A5';
-                ctx.beginPath();
+                gameViewModel.convexes.forEach(c => {
+                    ctx.beginPath();
+                    c.getVertices().forEach(p => {
+                        ctx.lineTo(c.x + p.x, c.y + p.y );
+                    });
+                    ctx.closePath();
+                    ctx.stroke();
+                });
                 let polygon = gameViewModel.polygon;
                 let points = polygon.points;
 //                ctx.moveTo(polygon.x +points[0].x * 100, points[0].y * 100);
-                points.forEach(p => {
-                    ctx.lineTo(polygon.x + p.x * 100, polygon.y + p.y * 100);
-                });
+//                points.forEach(p => {
+//                    ctx.lineTo(polygon.x + p.x * 100, polygon.y + p.y * 100);
+//                });
 //                ctx.lineTo(points[0].x * 100, points[0].y * 100);
-                ctx.closePath();
-                ctx.fill();
 
                 ctx.beginPath();
                 ctx.arc(gameViewModel.shooter.x, gameViewModel.shooter.y
@@ -144,14 +150,14 @@
                 this.gameViewModel.shooter.y = this.gameViewModel.polygon.y + Math.sin(dir) * (height / 2);
                 Matter.Body.setPosition(this.shooterBody, this.gameViewModel.shooter);
             },
-            shootFromDir(angle) {
+            shootFromDir(angle, run) {
                 this.updateShooterPosFromDir(angle);
                 this.gameViewModel.shots.push({
                     x: this.gameViewModel.shooter.x,
                     y: this.gameViewModel.shooter.y
                 });
                 let { x, y } = this.mainBody.position;
-                let vertices2 = this.convexes[0].getVertices();
+                let vertices2 = this.gameViewModel.convexes[0].getVertices();
                 vertices2[0].y += 20;
                 let inverseAngle = angle - Math.PI;
                 let bullet = Bullet(
@@ -162,53 +168,58 @@
                     this.gameViewModel.shooter.x,
                     this.gameViewModel.shooter.y);
 //
-                let transformations = Gun.shoot(bullet, this.convexes);
+                let transformations = Gun.shoot(bullet, this.gameViewModel.convexes);
+                this.runLog.runs[run] = {};
+                this.runLog.runs[run].transformations = transformations.length;
                 transformations.forEach(t => {
-                    console.log(t.convex);
-                    console.log(this.gameViewModel.shooter.x);
-                    console.log(this.gameViewModel.shooter.y);
+                    console.log(t);
                     World.remove(this.engine.world, t.convex.body);
-                    let oldIndex = this.convexes.findIndex(c => c == t.convex);
-                    this.convexes.splice(oldIndex, 1);
-                    this.convexes.push(t.leftConvex);
-                    this.convexes.push(t.rightConvex);
+                    let oldIndex = this.gameViewModel.convexes.findIndex(c => c == t.convex);
+                    this.gameViewModel.convexes.splice(oldIndex, 1);
+                    this.gameViewModel.convexes.push(t.leftConvex);
+                    this.gameViewModel.convexes.push(t.rightConvex);
                     let leftVertices = t.leftConvex.getVertices();
                     let rightVertices = t.rightConvex.getVertices();
+                    t.leftConvex.x = width / 2;
+                    t.leftConvex.y = height / 2;
+                    t.rightConvex.x = width / 2;
+                    t.rightConvex.y = height / 2;
+                    t.leftConvex.body = Bodies.fromVertices(width / 2, height / 2, leftVertices, { isStatic: true });
+                    t.rightConvex.body = Bodies.fromVertices(width / 2, height / 2, rightVertices, { isStatic: true });
+
+                    leftVertices.map(v => ({ x: v.x + width / 2, y: v.y + height / 2 }));
                     console.log(leftVertices);
-                    t.leftConvex.x = width /2;
-                    t.leftConvex.y = height /2;
-                    t.rightConvex.x = width /2;
-                    t.rightConvex.y = height /2;
-                    t.leftConvex.body = Bodies.fromVertices(width /2, height/2, leftVertices);
-                    t.rightConvex.body = Bodies.fromVertices(width /2, height/2, rightVertices);
+                    console.log(t.leftConvex.body.vertices);
+
                     World.add(this.engine.world, t.leftConvex.body);
                     World.add(this.engine.world, t.rightConvex.body);
                 });
 
 //                World.remove(this.engine.world, this.mainBody);
-//                this.convexes[0].body = this.mainBody = Bodies.fromVertices(width / 2, height / 2, vertices2);
+//                this.gameViewModel.convexes[0].body = this.mainBody = Bodies.fromVertices(width / 2, height / 2, vertices2);
 //                World.add(this.engine.world, this.mainBody);
             },
             async shootSequence() {
                 this.isShooting = true;
-                this.runLog = [];
-                this.convexes.forEach(c => {
+                this.runLog = {};
+                this.gameViewModel.convexes.forEach(c => {
                     Matter.World.remove(this.engine.world, c.body);
                 });
-                this.convexes = [];
+                this.gameViewModel.convexes = [];
                 this.mainBody = this.createMainBody();
                 Matter.World.add(this.engine.world, this.mainBody);
+                this.runLog.runs = {};
                 await timeout(100);
-                this.shootFromDir(this.currentSequence[0] * Math.PI * 2);
+                this.shootFromDir(this.currentSequence[0] * Math.PI * 2, 1);
                 await timeout(100);
-                this.shootFromDir(this.currentSequence[1] * Math.PI * 2);
+                this.shootFromDir(this.currentSequence[1] * Math.PI * 2, 2);
                 await timeout(100);
-                this.shootFromDir(this.currentSequence[2] * Math.PI * 2);
+                this.shootFromDir(this.currentSequence[2] * Math.PI * 2, 3);
                 await timeout(500);
                 this.gameViewModel.shots = [];
                 this.isShooting = false;
                 console.log('----');
-                console.log(this.runLog);
+                console.log(JSON.parse(JSON.stringify(this.runLog)));
             },
             mouseMoved(e) {
                 let mousePos = getMousePos(this.$refs['canvas'], e);
@@ -221,7 +232,7 @@
                 let convex = convexHelper.box({ x: width / 2, y: height / 2, size: 100 });
                 let originalVertices = convex.getVertices();
                 convex.body = Bodies.fromVertices(width / 2, height / 2, originalVertices);
-                this.convexes[0] = convex;
+                this.gameViewModel.convexes[0] = convex;
                 return convex.body;
             },
         },
@@ -244,7 +255,7 @@
             World.add(this.engine.world, [this.mainBody, this.shooterBody, ground]);
             this.engine.world.gravity.y = 0;
             Engine.run(this.engine);
-            Render.run(render);
+//            Render.run(render);
             this.update();
         }
     }

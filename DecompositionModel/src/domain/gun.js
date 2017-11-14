@@ -25,10 +25,10 @@ module.exports = {
             for (let i = 0; i < sorted.length; i++) {
                 let convex = sorted[i].convex;
                 let { wentThrough, leftConvex, rightConvex } = convex.makeHole(bullet, sorted[i].intersectionResult);
-                if(!convexHelper.isPolygonConvex(leftConvex.getVertices()))
-                    Error();
-                if(!convexHelper.isPolygonConvex(rightConvex.getVertices()))
-                    Error();
+                // if(!convexHelper.isPolygonConvex(leftConvex.getVertices()))
+                //     Error();
+                // if(!convexHelper.isPolygonConvex(rightConvex.getVertices()))
+                //     Error();
                 transformations.push({ convex, leftConvex, rightConvex });
                 if (!wentThrough)
                     break;

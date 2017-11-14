@@ -259,8 +259,8 @@ suite('convex', function () {
                 }
             });
 
-            assert.equal(leftConvex.lines[3].start, exitPos);
-            assert.equal(leftConvex.lines[3].end, enterPos);
+            assert.deepEqual(leftConvex.lines[3].start, exitPos);
+            assert.deepEqual(leftConvex.lines[3].end, enterPos);
         });
         test('the last edge in the right convex ' +
             'should go from intersection intersection enter to exit', function () {
@@ -288,8 +288,8 @@ suite('convex', function () {
                 }
             });
 
-            assert.equal(rightConvex.lines[2].start, enterPos);
-            assert.equal(rightConvex.lines[2].end, exitPos);
+            assert.deepEqual(rightConvex.lines[2].start, enterPos);
+            assert.deepEqual(rightConvex.lines[2].end, exitPos);
         });
     });
 });

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoTestManager">
+    <enabled-run-configurations>
+      <run-configuration type="mocha-javascript-test-runner" name="AutoMocha" />
+      <run-configuration type="mocha-javascript-test-runner" name="domainPhysicsIntegration" />
+    </enabled-run-configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c73fab46-8368-4955-9e0f-dc6bf61d6424" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package-lock.json" afterPath="$PROJECT_DIR$/frontend/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package.json" afterPath="$PROJECT_DIR$/frontend/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/HelloWorld.vue" afterPath="$PROJECT_DIR$/frontend/src/components/HelloWorld.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/convexHelper.js" afterPath="$PROJECT_DIR$/src/convexHelper.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/convex.js" afterPath="$PROJECT_DIR$/src/domain/convex.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/gun.js" afterPath="$PROJECT_DIR$/src/domain/gun.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intersectionHelper.js" afterPath="$PROJECT_DIR$/src/intersectionHelper.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/domain/convex.tests.js" afterPath="$PROJECT_DIR$/test/domain/convex.tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/domain/gun.test.js" afterPath="$PROJECT_DIR$/test/domain/gun.test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,11 +30,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HelloWorld.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/HelloWorld.vue">
+      <file leaf-file-name="gun.test.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/domain/gun.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="217" column="26" lean-forward="false" selection-start-line="217" selection-start-column="26" selection-end-line="217" selection-end-column="26" />
+            <state relative-caret-position="240">
+              <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="intersectionHelper.test.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/intersectionHelper.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gun.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/gun.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -41,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/src/domain/bullet.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+              <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -50,38 +73,8 @@
       <file leaf-file-name="intersectionHelper.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/intersectionHelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1520">
-              <caret line="76" column="18" lean-forward="false" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gun.test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/domain/gun.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="intersectionHelper.test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/intersectionHelper.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="56" lean-forward="false" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gun.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/gun.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="55" lean-forward="false" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+            <state relative-caret-position="1760">
+              <caret line="88" column="18" lean-forward="true" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -90,8 +83,8 @@
       <file leaf-file-name="convex.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/convex.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+            <state relative-caret-position="200">
+              <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -100,8 +93,18 @@
       <file leaf-file-name="convexHelper.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/convexHelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="10" />
+            <state relative-caret-position="940">
+              <caret line="47" column="6" lean-forward="true" selection-start-line="35" selection-start-column="28" selection-end-line="47" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sandbox.test.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/domainPhysicsIntegration/test/sandbox.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -118,11 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>describe</find>
-      <find>it</find>
-      <find>collide</find>
-      <find>makeHole</find>
-      <find>stub</find>
       <find>crossproduct</find>
       <find>cross</find>
       <find>convexFromPoints</find>
@@ -132,19 +130,27 @@
       <find>update</find>
       <find>canvas</find>
       <find>this.$refs['canvas'</find>
-      <find>renderGame</find>
       <find>slice</find>
       <find>updateShooterPosFromDir</find>
       <find>this.engine.world</find>
-      <find>engine</find>
       <find>convexHelper</find>
       <find>x</find>
-      <find>log</find>
       <find>collisions</find>
       <find>intersectsWithConvex</find>
       <find>isPolygonConvex</find>
       <find>makeHole(</find>
+      <find>log</find>
+      <find>runLog</find>
       <find>width / 2</find>
+      <find>width /</find>
+      <find>mousePos.y</find>
+      <find>this.gameViewModel.polygon</find>
+      <find>renderGame</find>
+      <find>convexes</find>
+      <find>this.convexes</find>
+      <find>this.engine</find>
+      <find>engine</find>
+      <find>vertices</find>
     </findStrings>
     <replaceStrings>
       <replace>suite</replace>
@@ -152,6 +158,7 @@
       <replace>deepEqual</replace>
       <replace>leftConvex</replace>
       <replace>rightConvex</replace>
+      <replace>this.gameViewModel.convexes</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -167,16 +174,20 @@
         <option value="$PROJECT_DIR$/src/domain/bullet.js" />
         <option value="$PROJECT_DIR$/model.txt" />
         <option value="$PROJECT_DIR$/test/convexHelper.test.js" />
-        <option value="$PROJECT_DIR$/test/domain/gun.test.js" />
         <option value="$PROJECT_DIR$/src/numberSeries.js" />
         <option value="$PROJECT_DIR$/test/numberSeries.test.js" />
         <option value="$PROJECT_DIR$/frontend/src/App.vue" />
-        <option value="$PROJECT_DIR$/test/domain/convex.tests.js" />
         <option value="$PROJECT_DIR$/src/convexHelper.js" />
-        <option value="$PROJECT_DIR$/src/domain/gun.js" />
         <option value="$PROJECT_DIR$/src/intersectionHelper.js" />
         <option value="$PROJECT_DIR$/src/domain/convex.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/HelloWorld.vue" />
+        <option value="$PROJECT_DIR$/test/domain/convex.tests.js" />
+        <option value="$PROJECT_DIR$/test/domain/gun.test.js" />
+        <option value="$PROJECT_DIR$/src/domain/gun.js" />
+        <option value="$PROJECT_DIR$/domainPhysicsIntegration/package.json" />
+        <option value="$PROJECT_DIR$/domainPhysicsIntegration/test/numberSeries.test.js" />
+        <option value="$PROJECT_DIR$/domainPhysicsIntegration/node_modules/matter-js/build/matter.js" />
+        <option value="$PROJECT_DIR$/domainPhysicsIntegration/test/sandbox.test.js" />
       </list>
     </option>
   </component>
@@ -189,14 +200,15 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/domainPhysicsIntegration/node_modules" />
     <handled-path value="$PROJECT_DIR$/frontend/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="75" />
+    <option name="y" value="6" />
     <option name="width" value="1615" />
-    <option name="height" value="1026" />
+    <option name="height" value="1054" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -226,42 +238,7 @@
             <path>
               <item name="DecompositionModel" type="b2602c69:ProjectViewProjectNode" />
               <item name="DecompositionModel" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DecompositionModel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DecompositionModel" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DecompositionModel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DecompositionModel" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DecompositionModel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DecompositionModel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DecompositionModel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DecompositionModel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DecompositionModel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DecompositionModel" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DecompositionModel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DecompositionModel" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="domainPhysicsIntegration" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -271,7 +248,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/domainPhysicsIntegration/test" />
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
@@ -300,7 +277,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Chromium Remote.Unnamed">
+  <component name="RunManager" selected="Mocha.domainPhysicsIntegration">
     <configuration name="AutoMocha" type="mocha-javascript-test-runner" factoryName="Mocha">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -328,6 +305,18 @@
       <node-interpreter value="project" />
       <envs />
     </configuration>
+    <configuration name="domainPhysicsIntegration" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>tdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory>$PROJECT_DIR$/domainPhysicsIntegration/test</test-directory>
+      <recursive>true</recursive>
+    </configuration>
     <configuration name="gun.shoot.when hole goes through should make hole in next closest convex" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -347,7 +336,7 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Chromium Remote.Unnamed" />
       <item index="1" class="java.lang.String" itemvalue="Mocha.AutoMocha" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js Remote Debug.Unnamed" />
+      <item index="2" class="java.lang.String" itemvalue="Mocha.domainPhysicsIntegration" />
       <item index="3" class="java.lang.String" itemvalue="npm.autotest" />
       <item index="4" class="java.lang.String" itemvalue="Mocha.gun.shoot.when hole goes through should make hole in next closest convex" />
     </list>
@@ -390,6 +379,13 @@
       <workItem from="1507828231771" duration="9601000" />
       <workItem from="1507970377147" duration="13160000" />
       <workItem from="1508062522845" duration="10830000" />
+      <workItem from="1508180754624" duration="5000" />
+      <workItem from="1508259486116" duration="4019000" />
+      <workItem from="1508347588460" duration="191000" />
+      <workItem from="1508432660773" duration="4349000" />
+      <workItem from="1509473500315" duration="622000" />
+      <workItem from="1509822080180" duration="2300000" />
+      <workItem from="1510684831969" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="created frontend project">
       <created>1507839994988</created>
@@ -402,62 +398,62 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AutoMocha - 2017.10.12 at 20h 25m 49s.xml">
-      <configuration name="AutoMocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="domainPhysicsIntegration - 2017.10.19 at 20h 19m 47s.xml">
+      <configuration name="domainPhysicsIntegration" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="AutoMocha - 2017.10.12 at 20h 25m 51s.xml">
-      <configuration name="AutoMocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="domainPhysicsIntegration - 2017.10.19 at 20h 19m 50s.xml">
+      <configuration name="domainPhysicsIntegration" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="AutoMocha - 2017.10.15 at 00h 18m 03s.xml">
-      <configuration name="AutoMocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="domainPhysicsIntegration - 2017.10.19 at 20h 19m 52s.xml">
+      <configuration name="domainPhysicsIntegration" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="AutoMocha - 2017.10.15 at 00h 18m 25s.xml">
-      <configuration name="AutoMocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="domainPhysicsIntegration - 2017.10.19 at 20h 19m 55s.xml">
+      <configuration name="domainPhysicsIntegration" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="AutoMocha - 2017.10.15 at 00h 18m 36s.xml">
-      <configuration name="AutoMocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="domainPhysicsIntegration - 2017.10.19 at 20h 20m 00s.xml">
+      <configuration name="domainPhysicsIntegration" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="AutoMocha - 2017.10.15 at 00h 18m 41s.xml">
-      <configuration name="AutoMocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="domainPhysicsIntegration - 2017.10.19 at 20h 20m 03s.xml">
+      <configuration name="domainPhysicsIntegration" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="AutoMocha - 2017.10.15 at 00h 18m 50s.xml">
-      <configuration name="AutoMocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="domainPhysicsIntegration - 2017.10.19 at 20h 20m 05s.xml">
+      <configuration name="domainPhysicsIntegration" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="AutoMocha - 2017.10.15 at 00h 18m 57s.xml">
-      <configuration name="AutoMocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="domainPhysicsIntegration - 2017.10.31 at 19h 41m 46s.xml">
+      <configuration name="domainPhysicsIntegration" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="AutoMocha - 2017.10.15 at 00h 19m 21s.xml">
-      <configuration name="AutoMocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="domainPhysicsIntegration - 2017.10.31 at 19h 41m 53s.xml">
+      <configuration name="domainPhysicsIntegration" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="AutoMocha - 2017.10.15 at 00h 19m 27s.xml">
-      <configuration name="AutoMocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="domainPhysicsIntegration - 2017.10.31 at 19h 41m 55s.xml">
+      <configuration name="domainPhysicsIntegration" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74734000" />
+    <option name="totallyTimeSpent" value="86227000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1615" height="1026" extended-state="0" />
+    <frame x="75" y="6" width="1617" height="1062" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17776382" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23974082" sideWeight="0.28535032" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23974082" sideWeight="0.7146497" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17399497" sideWeight="0.50641024" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11447084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2389937" sideWeight="0.7146497" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11447084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,27 +473,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/domain/gun.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/convex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/convexHelper.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="46" lean-forward="false" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/convexHelper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -682,7 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -697,62 +671,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/domain/convex.tests.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="291" column="28" lean-forward="false" selection-start-line="291" selection-start-column="28" selection-end-line="291" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainPhysicsIntegration/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/HelloWorld.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4820">
+          <caret line="241" column="38" lean-forward="false" selection-start-line="241" selection-start-column="38" selection-end-line="241" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainPhysicsIntegration/node_modules/matter-js/build/matter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121840">
+          <caret line="6096" column="25" lean-forward="false" selection-start-line="6096" selection-start-column="25" selection-end-line="6096" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainPhysicsIntegration/test/sandbox.test.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/convexHelper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="10" />
+        <state relative-caret-position="940">
+          <caret line="47" column="6" lean-forward="true" selection-start-line="35" selection-start-column="28" selection-end-line="47" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/convex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/gun.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="55" lean-forward="false" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/intersectionHelper.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="56" lean-forward="false" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/domain/gun.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        <state relative-caret-position="200">
+          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/intersectionHelper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="76" column="18" lean-forward="false" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="21" />
+        <state relative-caret-position="1760">
+          <caret line="88" column="18" lean-forward="true" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -760,15 +737,31 @@
     <entry file="file://$PROJECT_DIR$/src/domain/bullet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+          <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/HelloWorld.vue">
+    <entry file="file://$PROJECT_DIR$/src/domain/gun.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="217" column="26" lean-forward="false" selection-start-line="217" selection-start-column="26" selection-end-line="217" selection-end-column="26" />
+        <state relative-caret-position="200">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/intersectionHelper.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/domain/gun.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
           <folding />
         </state>
       </provider>

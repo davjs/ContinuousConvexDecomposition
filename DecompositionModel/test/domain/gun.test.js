@@ -13,7 +13,9 @@ suite('gun', function () {
             };
 
             let convex = {
-                makeHole: sinon.stub().returns({})
+                makeHole: sinon.stub().returns({
+                    getVertices(){}
+                })
             };
 
             Gun.shoot(bullet, [convex]);
